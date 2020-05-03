@@ -18,10 +18,14 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    public User(String name, String email, String password) {
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
+
+    public User(String name, String email, String password, Address address) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.address = address;
     }
 
     protected User() {
